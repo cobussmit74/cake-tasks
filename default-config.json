@@ -1,0 +1,54 @@
+{
+    "DefaultTasks":[
+        "purge",
+        "git-submodule",
+        "npm-install",
+        "nuget-restore",
+        "build",
+        "cover-dotnet",
+        "test-javascript",
+        "report-generator"
+    ],
+
+    "Root": "../",
+    "SourceFolder": "../source",
+    "BuildReportsFolder": "../buildreports",
+    "PurgeFolders": [
+        "../source/**/bin",
+        "../source/**/obj",
+        "../buildreports",
+        "../js-buildreports"
+    ],
+    "SolutionPaths": [
+        "../source/*.sln"
+    ],
+    "NunitOutputFile": "../buildreports/nunit-result.xml",
+    "NunitTestLibrarySearchPattern": "../source/**/bin/**/*.Tests.dll",
+    "OpenCoverOutputFile": "../buildreports/coverage.xml",
+    "CoverageOutputFolder": "../buildreports/coverage",
+    "CoberturaOutputFile": "../buildreports/coverage-cobertura.xml",
+    "OpenCoverFilters": [
+        "+[*]*",
+        "-[*]FluentMigrator.*",
+        "-[*]PeanutButter.*",
+        "-[*]AutoMapper",
+        "-[*]AutoMapper.*",
+        "-[*]WindsorTestHelpers.*",
+        "-[*]MvcTestHelpers",
+        "-[*]TestUtils",
+        "-[*]Castle*",
+        "-[*]Antlr*"
+    ],
+    "CoverageReportExclusions": [
+        "*.Tests",
+        "FluentMigrator",
+        "FluentMigrator.Runner",
+        "PeanutButter.*",
+        "GenericBuilderTestArtifactBuilders",
+        "GenericBuilderTestArtifactEntities",
+        "Castle.Windsor.*",
+        "Quartz"
+    ],
+    "KarmaPath": "../node_modules/karma/bin/karma",
+    "KarmaConfigPath": "../karma.conf.js"
+}

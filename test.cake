@@ -1,0 +1,1 @@
+Task("test").IsDependentOn("test-dotnet").IsDependentOn("test-javascript");
