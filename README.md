@@ -25,6 +25,7 @@ The *cake.ps1* script takes a single argument and execute only the task name tha
 - Git Submodule Update
 - NPM Install
 - Nuget Restore
+- DotNet Core Restore
 - MSBuild
 - NUnit Test Runner
 - OpenCover Test Coverage
