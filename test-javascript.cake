@@ -1,45 +1,31 @@
 #load "config.cake"
-#addin "Cake.Powershell"
+#addin "Cake.Npm"
 
-string CommandToCheckOfKarmaFailed()
+NpmRunScriptSettings CreateKarmaRunSettings(bool singleRun)
 {
-  return "if ($lastexitcode -ne 0) { throw \"Karma test run failed\" }";
-}
-
-ProcessArgumentBuilder AppendKarmaArguments(bool singleRun)
-{
-  var args = new ProcessArgumentBuilder();
-  args.AppendQuoted(config.KarmaPath);
-  args.Append("start");
-  args.AppendQuoted(config.KarmaConfigPath);
-  if (singleRun)
-  {
-    args.Append("--single-run");
-  }
-  args.Append(";");
-  args.Append(CommandToCheckOfKarmaFailed());
-  return args;
-}
-
-void StartKarma(bool singleRun)
-{
-  StartPowershellScript(
-    "& node", 
-    new PowershellSettings
+  var settings = new NpmRunScriptSettings 
       {
-        Arguments = AppendKarmaArguments(singleRun),
-        FormatOutput = true
-      });
+          ScriptName = "karma"
+      };
+  settings.FromPath(config.Root);
+  settings.WithArguments("start");
+  settings.WithArguments(config.KarmaConfigPath);
+
+  if (singleRun){
+    settings.WithArguments("--single-run");
+  }
+
+  return settings;
 }
 
 Task("test-javascript")
   .Does(() =>
 {
-  StartKarma(true);
+  NpmRunScript(CreateKarmaRunSettings(true));
 });
 
 Task("watch-javascript")
   .Does(() =>
 {
-  StartKarma(false);
+  NpmRunScript(CreateKarmaRunSettings(false));
 });

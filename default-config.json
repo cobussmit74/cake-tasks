@@ -51,6 +51,5 @@
         "Castle.Windsor.*",
         "Quartz"
     ],
-    "KarmaPath": "../node_modules/karma/bin/karma",
-    "KarmaConfigPath": "../karma.conf.js"
+    "KarmaConfigPath": "karma.conf.js"
 }
