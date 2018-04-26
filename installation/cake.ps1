@@ -6,6 +6,15 @@ Param(
 $startupFolder = Split-Path $MyInvocation.MyCommand.Path -Parent
 . $startupFolder\cake-tasks\install-variables.ps1
 
+function GetProxyEnabledWebClient
+{
+    $wc = New-Object System.Net.WebClient
+    $proxy = [System.Net.WebRequest]::GetSystemWebProxy()
+    $proxy.Credentials = [System.Net.CredentialCache]::DefaultCredentials        
+    $wc.Proxy = $proxy
+    return $wc
+}
+
 function InstallCake([string] $Version)
 {
     if ($Version -eq "")
@@ -17,6 +26,10 @@ function InstallCake([string] $Version)
 
     if ($Version -eq "latest")
     {
+        $wc = GetProxyEnabledWebClient
+        $packageInfo = [xml]$wc.DownloadString("https://cakebuild.net/download/bootstrapper/packages")
+        Write-Host $packageInfo.packages.package.version
+
         Remove-Item $cakeVersionFile
     }
     else
