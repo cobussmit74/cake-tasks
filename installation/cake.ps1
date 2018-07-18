@@ -30,7 +30,9 @@ function InstallCake([string] $Version)
         $packageInfo = [xml]$wc.DownloadString("https://cakebuild.net/download/bootstrapper/packages")
         Write-Host $packageInfo.packages.package.version
 
-        Remove-Item $cakeVersionFile
+        if(Test-Path -Path $cakeVersionFile){
+            Remove-Item $cakeVersionFile
+        }
     }
     else
     {
