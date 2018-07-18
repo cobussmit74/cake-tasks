@@ -1,4 +1,6 @@
 {
+    "CakeVersion": "latest",
+
     "DefaultTasks":[
         "purge",
         "git-submodule",
