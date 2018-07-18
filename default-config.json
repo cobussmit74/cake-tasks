@@ -28,26 +28,10 @@
     "CoverageOutputFolder": "../buildreports/coverage",
     "CoberturaOutputFile": "../buildreports/coverage-cobertura.xml",
     "OpenCoverFilters": [
-        "+[*]*",
-        "-[*]FluentMigrator.*",
-        "-[*]PeanutButter.*",
-        "-[*]AutoMapper",
-        "-[*]AutoMapper.*",
-        "-[*]WindsorTestHelpers.*",
-        "-[*]MvcTestHelpers",
-        "-[*]TestUtils",
-        "-[*]Castle*",
-        "-[*]Antlr*"
+        "+[Your.Namespace.Here*]*"
     ],
     "CoverageReportExclusions": [
-        "*.Tests",
-        "FluentMigrator",
-        "FluentMigrator.Runner",
-        "PeanutButter.*",
-        "GenericBuilderTestArtifactBuilders",
-        "GenericBuilderTestArtifactEntities",
-        "Castle.Windsor.*",
-        "Quartz"
+        "*.Tests"
     ],
     "KarmaConfigPath": "karma.conf.js"
 }
