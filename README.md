@@ -5,7 +5,7 @@ A starter pack to get your C# project build pipeline up and running quickly
 - Powershell scripting needs to be enabled. As Administrator, run ```Set-ExecutionPolicy RemoteSigned```
 
 ## Installation
-1. Initialise this repo as a submodule in your root of your project. ```git submodule add https://github.com/cobussmit74/cake-tasks.git```
+1. Initialise this repo as a submodule in the root of your project. ```git submodule add https://github.com/cobussmit74/cake-tasks.git```
 2. Run the install script. ```.\cake-tasks\install.ps1```
 3. Modify the *cake-config.json* file in your project root to suit your needs and project structure.
 
