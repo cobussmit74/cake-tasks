@@ -15,7 +15,7 @@ Just execute the *cake.ps1* script in your project root.
 .\cake
 ```
 ### Running Single Tasks
-The *cake.ps1* script takes a single argument and execute only the task name that matches.
+The *cake.ps1* script takes a single argument and executes only the task name that matches.
 ```
 .\cake watch-javascript
 ```
