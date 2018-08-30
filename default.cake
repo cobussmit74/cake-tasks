@@ -6,6 +6,7 @@
 #load "purge.cake"
 #load "nuget-restore.cake"
 #load "dotnet-restore.cake"
+#load "dotnet-build.cake"
 #load "build.cake"
 #load "test-dotnet.cake"
 #load "test-javascript.cake"
