@@ -7,7 +7,7 @@ Task("test-dotnetcore")
   {
       DotNetCoreTest(file.FullPath, new DotNetCoreTestSettings
       {
-        OutputDirectory = config.NunitOutputFile,
+        ResultsDirectory = config.NunitOutputFile,
         NoRestore = true,
         NoBuild = true
       });
