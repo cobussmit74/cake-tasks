@@ -11,6 +11,7 @@
 #load "test-dotnet.cake"
 #load "test-javascript.cake"
 #load "test.cake"
+#load "test-dotnetcore.cake"
 #load "report-generator.cake"
 #load "convert-opencover-cobertura.cake"
 #load "../local-tasks/imports.cake"
